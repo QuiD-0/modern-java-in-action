@@ -1,6 +1,7 @@
 package behaviorParameterization;
 
-record Apple(
-    Color color
+public record Apple(
+    Color color,
+    int weight
 ) {
 }
