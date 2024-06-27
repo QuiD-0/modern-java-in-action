@@ -1,7 +1,6 @@
 package behaviorParameterization;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,10 +14,10 @@ public class Main {
             new Apple(Color.RED, 300)
         );
 
-        List<Apple> list = apples.stream()
+        List<Apple> list1 = apples.stream()
             .filter(appleColorPredictor)
             .toList();
-        System.out.println("TEST 2 :" + list);
+        System.out.println("TEST 2 :" + list1);
 
         List<Apple> list2 = apples.stream()
             .filter(apple1 -> apple1.color() == Color.RED)
@@ -26,13 +25,16 @@ public class Main {
         System.out.println("TEST 3 :" + list2);
 
         List<Apple> list3 = apples.stream()
-            .filter(new Predicate<Apple>() {
-                @Override
-                public boolean test(Apple apple) {
-                    return apple.weight() > 150;
-                }
-            })
+            .filter(apple12 -> apple12.weight() > 150)
             .toList();
         System.out.println("TEST 4 :" + list3);
+
+        ApplePredictor applePredictor = new ApplePredictor();
+        applePredictor.addPredicate(apple1 -> apple1.weight() < 150);
+        applePredictor.addPredicate(apple1 -> apple1.color() == Color.RED);
+        List<Apple> list4 = apples.stream()
+            .filter(applePredictor::test)
+            .toList();
+        System.out.println("TEST 5 :" + list4);
     }
 }
