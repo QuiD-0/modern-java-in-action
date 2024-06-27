@@ -29,9 +29,10 @@ public class Main {
             .toList();
         System.out.println("TEST 4 :" + list3);
 
-        ApplePredictor applePredictor = new ApplePredictor();
-        applePredictor.addPredicate(apple1 -> apple1.weight() < 150);
-        applePredictor.addPredicate(apple1 -> apple1.color() == Color.RED);
+        ApplePredictor applePredictor = new ApplePredictor()
+            .addPredicate(apple1 -> apple1.weight() < 150)
+            .addPredicate(apple1 -> apple1.color() == Color.RED);
+
         List<Apple> list4 = apples.stream()
             .filter(applePredictor::test)
             .toList();

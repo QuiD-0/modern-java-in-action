@@ -11,8 +11,9 @@ public record ApplePredictor(
         this(new ArrayList<>());
     }
 
-    public void addPredicate(Predicate<Apple> predicate) {
+    public ApplePredictor addPredicate(Predicate<Apple> predicate) {
         predicates.add(predicate);
+        return this;
     }
 
     public boolean test(Apple apple) {
