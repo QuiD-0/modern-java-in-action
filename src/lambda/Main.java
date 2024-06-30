@@ -8,7 +8,7 @@ import java.util.List;
 import static behaviorParameterization.Color.GREEN;
 import static behaviorParameterization.Color.RED;
 
-public class Lambda {
+public class Main {
 
     public static void main(String[] args) {
 
