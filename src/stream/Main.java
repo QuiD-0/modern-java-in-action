@@ -99,6 +99,12 @@ public class Main {
             .filter(Dish::isVegetarian)
             .count();
         System.out.println("Dish Count : " + count);
+
+        // 11.무한 스트림
+        List<Integer> list = Stream.iterate(0, n -> n + 2)
+            .limit(10)
+            .toList();
+        System.out.println("List : " + list);
     }
 
     private static List<Dish> getDishes() {
